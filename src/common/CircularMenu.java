@@ -52,7 +52,7 @@ public class CircularMenu extends JPanel {
 	private void build() {
 		if (items != null && items.size() > 0) {
 			setLayout(null);
-			double angle = 2 * Math.PI / (8.);
+			double angle = 2 * Math.PI / items.size();
 			int xCentre = getWidth() / 2;
 			int yCentre = getHeight() / 2;
 			if (items.size() < 9) {
