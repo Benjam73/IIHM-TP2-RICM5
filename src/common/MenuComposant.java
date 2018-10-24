@@ -41,6 +41,12 @@ public class MenuComposant extends JPanel {
 
 	private String texte;
 
+	private SubCircularMenu subMenu;
+	
+	public int centreX;
+	
+	public int centreY;
+	
 	/**
 	 * Constructeur du rectangle
 	 * 
@@ -56,6 +62,21 @@ public class MenuComposant extends JPanel {
 		this.setSize(new Dimension(largeur + 10, largeur + 10));
 		this.setOpaque(false);
 		ajouterListener();
+	}
+	
+	
+	
+	
+	public MenuComposant(String texte, Color couleurNormal, Color couleurActif, int taille, SubCircularMenu subMenu) {
+		this.couleur = couleurNormal;
+		this.couleurNormal = couleurNormal;
+		this.couleurActif = couleurActif;
+		this.texte = texte;
+		largeur = taille;
+		this.setSize(new Dimension(largeur + 10, largeur + 10));
+		this.setOpaque(false);
+		ajouterListener();
+		this.subMenu = subMenu;
 	}
 
 	private void ajouterListener() {
@@ -117,5 +138,9 @@ public class MenuComposant extends JPanel {
 		int y = (fm.getAscent() + (this.getHeight() - (fm.getAscent() + fm.getDescent())) / 2);
 		
 		g2d.drawString(texte, x, y);
+
+		centreX = this.getX();
+		centreY = this.getY();
+		
 	}
 }
